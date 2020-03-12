@@ -22,4 +22,4 @@ urlpatterns = [
     url('principal', TemplateView.as_view(template_name='principal.html')),
 
     url(r'^$', TemplateView.as_view(template_name='login.html'))
-]
+] 

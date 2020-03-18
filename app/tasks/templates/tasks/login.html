@@ -1,10 +1,85 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <title>Título da página</title>
-    <meta charset="utf-8">
-  </head>
-  <body>
-    Aqui vai o código HTML que fará seu site aparecer.
-  </body>
+
+<head>
+  <title>Título da página</title>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+</head>
+
+<body>
+  <section>
+    <div>
+      <div id="slice1">
+        <div id="slice1a">
+          <img style="width: 100%;" src="{% static 'img/academia.png' %}" alt="academia">
+        </div>
+
+        <div id="slice1b">
+          <div>
+            <div style="float: right; line-height: 0">
+                <!-- Source set breakpoints generated with http://www.responsivebreakpoints.com, from 320. -->
+                <!--imagem-->
+                <img >
+                <div id="magnifier" class="mode1"><div></div></div>
+
+                <div></div> <!-- Magnifier inset box-shadow. -->
+            </div>
+          </div><!--
+
+          This comment will prevent a space from appearing between the two sibling elements.
+
+        --><div id="magnifier-control">
+            <p id="magnifier-mode1" class="selected">Melhores planos para você.</p>
+
+            <p id="magnifier-mode2">Preços baixos e acessíveis.</p>
+          </div>
+        </div>  
+      </div>
+
+      <div id='slice2'>
+        <form action="">
+          <div class="field">
+            <input type="text" name="fullname" id="fullname" placeholder="Email Adress*">
+            <label for="fullname">Email Adress*</label>
+          </div>
+
+          <div class="field">
+            <input type="email" name="email" id="email" placeholder="Passaword*">
+            <label for="email">Passaword*</label>
+          </div>
+
+          <div>
+            <label class="container">Remenber me
+              <input type="checkbox" checked="checked">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          
+          <div>
+            <a class="button" ><span>Sign in</span></a>
+          </div>
+          
+          <div>
+            <div>
+              <a class="helpUser" href="#">Forgot password?</a>
+            </div>
+
+            <div>
+              <a style="text-align: end;" class="helpUser" href="#">Don't have an account? Sign Up</a>
+            </div>    
+          </div>  
+
+          <div style="margin-top: 30px;">
+            <p style="color:black; font-size: 12px; width: 100%; text-align: center;">Copyright © JUJUFIT 2020.</p>
+          </div>  
+        </form>
+      </div>
+      <div>
+  </section>
+  <script src="{% static 'js/login.js' %}"></script>
+</body>
+
 </html>

@@ -1,0 +1,93 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+    <title>Título da página</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+
+    <!-- CDN do font awesome para uso de icones. -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+    
+    <!-- CDN do css do bootstrap para ajudar no template do trabalho. -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <section>
+      <div>
+        <div id="slice1">
+          <div id="slice1a">
+            <img style="width: 100%;" src="{% static 'img/academia.png' %}" alt="academia">
+          </div>
+
+          <div id="slice1b">
+              <div>
+                  <div style="float: right; line-height: 0">
+                      <div class="osx-window"><span class="circle red"></span><span class="circle yellow"></span><span class="circle green"></span></div>
+
+                      <!-- Source set breakpoints generated with http://www.responsivebreakpoints.com, from 320. -->
+                      
+                      <div id="magnifier" class="mode1"><div></div></div>
+
+                      <div></div> <!-- Magnifier inset box-shadow. -->
+                  </div>
+              </div><!--
+
+              This comment will prevent a space from appearing between the two sibling elements.
+
+          --><div id="magnifier-control">
+                  <p id="magnifier-mode1" class="selected">You choose which accounts to follow and get updates via Slack.</p>
+
+                  <p id="magnifier-mode2">Set up notifications to get your customers' emails in team channels.</p>
+              </div>
+          </div>
+        </div>
+
+        <div id='slice2'>
+          <div id='slice2a'>
+            <i class="fas fa-lock fa-2x"></i>
+            <h3>Sign in</h3>
+          </div>  
+          
+          <div id='slice2b'>
+            <div class="row" style="width: 80%">
+              <div class="card auth-card" style="width:100%; border: none">
+                <div class="card-body">
+                  <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ next }}">
+                    
+                    {{ form|crispy }}
+                    <button class="button" type="submit">Sign in</button>
+                  </form>
+                </div>
+              </div>  
+            </div>
+
+            <div style="width: 70%">
+              <div>
+                <a class="helpUser" href="../register/">Esqueceu a senha?</a>
+              </div>
+
+              <div>
+                <a style="text-align: end;" class="helpUser" href="../register/">Você não possui uma conta? Registre</a>
+              </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+              <p style="color:black; font-size: 12px; width: 100%; text-align: center;">Copyright © JUJUFIT 2020.</p>
+            </div>
+          </div>  
+        </div>
+      </div>
+    </section>
+    <script src="{% static 'js/login.js' %}"></script>
+  </body>
+
+</html>

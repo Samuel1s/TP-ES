@@ -1,0 +1,56 @@
+#slice {
+    height: 100vh;
+}
+
+/* Navbar */
+
+.navbar {
+    border-bottom: 1px solid #333;
+    margin-bottom: 20px;
+}
+
+.navbar-nav {
+    margin: auto;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.navbar-light .navbar-nav a.navbar-link {
+    color: #333;
+}
+
+.logo {
+    height: 55px;
+    width: 63px;
+    background-image: url(../img/logo.svg);
+}
+
+.logo-anchor {
+    height: 55px;
+    width: 63px;
+}
+
+/* Footer */
+
+footer {
+    padding: 0;
+    background-color: #1976d2;
+}
+
+#footer {
+    margin: 0 auto;
+    background-color: white;
+    height: 120px;
+    width: 120px;
+    background-image: url(../img/logo-footer.svg);
+}
+
+.container i {
+    color: white;
+}
+
+.footer-copyright {
+    color: white;
+}

@@ -1,43 +1,126 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang=”pt-br”>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/testeParm.css' %}">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %}{% endblock %}</title>
+
+	<!-- Css próprio. -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/listUsers.css' %}">
+
+	<!-- CDN do css do bootstrap para ajudar no template do trabalho. -->
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<!-- CDN Font Awesome para uso de ícones. -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+		integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
 </head>
+
 <body>
-    
-	<header>
-		<nav>
-			<ul>
-				<li>Your menu</li>
-			</ul>
-		</nav>
-	</header>
-	
-	<section>
-	
-		<article>
-			<header>
-				<h2>Article title</h2>
-				
-			</header>
-            {% block content %}
-            {% endblock %}
-            <script src="{% static 'js/scriptTeste.js' %}"></script>
-		</article>
-		
-	</section>
+	<div id="slice">
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<a href="/lista/">
+					<div class="logo"></div>
+				</a>
 
-	<!--<aside>
-		<h2>About section</h2>
-		<p>Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-	</aside>-->
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-	<footer>
-		<p>Copyright 2009 Your name</p>
-	</footer>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						{% if user.is_authenticated %}
+						<li class="nav-item active">
+							<a class="nav-link" href="#">Tarefas</a>
+						</li>
+
+						<li class="nav-item active">
+							<a class="nav-link" href="#">Usuários</a>
+						</li>
+						{% endif %}
+
+						{% if user.is_authenticated %}
+						<li class="nav-item active">
+							<a class="nav-link" href="/accounts/logout">Sair</a>
+						</li>
+						{% endif %}
+
+					</ul>
+				</div>
+			</nav>
+		</header>
+
+		<section>
+			<article>
+				{% block content %}
+				{% endblock %}
+			</article>
+		</section>
+
+		<!-- Footer -->
+		<footer class="page-footer font-small special-color-dark">
+			<!-- Footer Elements -->
+			<a href="/lista/">
+				<div id="footer"></div>
+			</a>
+
+			<div class="container">
+
+				<!-- Social buttons -->
+				<ul class="list-unstyled list-inline text-center">
+					<li class="list-inline-item">
+						<a class="btn-floating btn-fb mx-1">
+							<i class="fab fa-facebook-f"> </i>
+						</a>
+					</li>
+					<li class="list-inline-item">
+						<a class="btn-floating btn-tw mx-1">
+							<i class="fab fa-twitter"> </i>
+						</a>
+					</li>
+					<li class="list-inline-item">
+						<a class="btn-floating btn-gplus mx-1">
+							<i class="fab fa-google-plus-g"> </i>
+						</a>
+					</li>
+					<li class="list-inline-item">
+						<a class="btn-floating btn-li mx-1">
+							<i class="fab fa-linkedin-in"> </i>
+						</a>
+					</li>
+					<li class="list-inline-item">
+						<a class="btn-floating btn-dribbble mx-1">
+							<i class="fab fa-dribbble"> </i>
+						</a>
+					</li>
+				</ul>
+				<!-- Social buttons -->
+
+			</div>
+			<!-- Footer Elements -->
+
+			<!-- Copyright -->
+			<div class="footer-copyright text-center py-3">© 2020 JujuFit: Todos os direitos reservados
+			</div>
+			<!-- Copyright -->
+		</footer>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+
+	<script src="{% static 'js/scriptTeste.js' %}"></script>
+
+	<!-- CDN JS do boostrap. -->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
 </body>
+
 </html>

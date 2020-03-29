@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %} Lista de Usuários {% endblock %}
+
+{% block content %}
+    <div class="offset-1 col-10 list-div">    
+        <h1>Lista de Usuários</h1>
+        <a style="text-decoration: none;" href="addUser/"> 
+            <div class="col-2 add-div">
+                <i class="fas fa-plus"></i> Adicionar 
+            </div>
+        </a>
+
+        <div class="col-9 search-div">
+            <form method="GET" id="search-form" >
+                <input type="text" id="search" name="search" value="{{ request.GET.search }}" placeholder="Digite o nome do Usuário para buscar">
+                <i class="fas fa-search" id="search-btn"></i>
+            </form>    
+        </div>   
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li {% if message.tags %} class="alert alert-{{message.tags}}"{% endif %}>{{ message }}</li> 
+                {% endfor %}
+            </ul>    
+        {% endif %}
+
+        <ul class="users-list">
+            {% for user in users %}
+            <li class="users-itens">
+                <span><a href="user/{{user.id}}">{{user.fullname}}</a></span>
+                <a href="deleteUser/{{user.id}}" class="delete-btn"><span><i class="fas fa-trash"></i></span></a>
+                <a href="editUser/{{user.id}}"><span><i class="fas fa-edit"></i></span></a>
+            </li>    
+            {% endfor %}
+        </ul>    
+
+        <div class="pagination"> 
+            <span class="step-links">
+                {% if users.has_previous %}
+                    <a href="?page={{ users.previous_page_number }} "><i class="fas fa-arrow-left"></i></a>
+                {% endif %}
+                
+                {% if users.paginator.num_pages %}
+                <span class="current">
+                    {{ users.number }} de {{ users.paginator.num_pages }}
+                </span>    
+                {% endif %}
+
+                {% if users.has_next %}
+                    <a href="?page={{ users.next_page_number }} "><i class="fas fa-arrow-right"></i></a>
+                {% endif %}
+            </span>
+        </div>   
+
+
+    </div>
+{% endblock %}
+
+
+

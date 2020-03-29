@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/addUser.css' %}">
+
+    <div class="offset-1 col-10 list-div">    
+        <h1>Adicione um novo usuário:</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}   
+            
+            <div id="add-user">
+                <input type="submit" class="button" value="Criar Usuário">
+            </div> 
+        </form>    
+
+    </div>
+{% endblock %}
+
